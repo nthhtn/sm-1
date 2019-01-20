@@ -46,12 +46,24 @@ namespace SM1
         public void PassInput()
         {
             Assert.Equal("INVALID_INPUT", fileContent(0, 0));
+            string directory = Directory.GetCurrentDirectory();
+            string path = directory + @"\output.txt";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
         }
 
         [Fact]
         public void PassDefault()
         {
             Assert.Equal("5 8 13 21 34 55 89 144 233 377", fileContent(4));
+            string directory = Directory.GetCurrentDirectory();
+            string path = directory + @"\output.txt";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
         }
 
         // Test output
@@ -60,18 +72,36 @@ namespace SM1
         public void Pass01()
         {
             Assert.Equal("1", fileContent(0, 1));
+            string directory = Directory.GetCurrentDirectory();
+            string path = directory + @"\output.txt";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
         }
 
         [Fact]
         public void Pass02()
         {
             Assert.Equal("1 1", fileContent(0, 2));
+            string directory = Directory.GetCurrentDirectory();
+            string path = directory + @"\output.txt";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
         }
 
         [Fact]
         public void Pass24()
         {
             Assert.Equal("3 5 8 13", fileContent(2, 4));
+            string directory = Directory.GetCurrentDirectory();
+            string path = directory + @"\output.txt";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
         }
 
         // Test result written into file
@@ -85,6 +115,10 @@ namespace SM1
             Assert.Equal("3 5 8 13", result);
             Assert.Equal(true, File.Exists(path));
             Assert.Equal(result, File.ReadAllText(path));
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
         }
 
     }
